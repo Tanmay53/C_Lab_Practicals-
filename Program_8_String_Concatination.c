@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
     char str1[30], str2[30];
-    int h;
+    int len;
     printf("Enter First String:\n");
-    gets(str1);
+    scanf("%s", str1);
     printf("Enter Second String:\n");
-    gets(str2);
+    scanf("%s", str2);
     strcat(str1, str2);
-    printf("Combined String is : %s", str1);
+    len = strlen(str1);
+    printf("Combined String %s is %d in length.", str1, len);
     return 0;
 }
