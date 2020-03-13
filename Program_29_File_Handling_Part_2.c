@@ -39,24 +39,28 @@ void append(int newFile)
 {
     char data[1100];
     char nFile[100];
+    char temp;
     FILE *fp;
     if(newFile == 1)
     {
         printf("Enter new File Name\n");
         scanf("%s", nFile);
+        int c;
+        while(((c = getchar()) != '\n') || (c == EOF));
         printf("The current active file is : %s\n", nFile);
         strcpy(file, nFile);
     }
     printf("Enter the Data to save in the File.\n");
-    scanf("%[^\n]", &data);
-    printf("qwerty");
+    scanf("%[^\n]", data);
     fp = fopen(file, "a");
     fputs(data, fp);
     fclose(fp);
 }
 int main()
 {
-    int command = NULL;
+    int command;
+    int scanCheck = 1;
+    char temp[200];
     while(1)
     {
         printf("Press the following keys to control Files.\n");
@@ -66,7 +70,10 @@ int main()
         printf("4 => Read the Current File(%s).\n", file);
         printf("5 => Read from a New File.\n");
         printf("0 => Exit.\n");
-        scanf("%d", &command);
+        command = 6;
+        scanCheck = scanf("%d", &command);
+        int c;
+        while(((c = getchar()) != '\n') || (c == EOF));
         switch(command)
         {
         case 1:
